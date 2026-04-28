@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo Medical Site</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-brand"><img class="site-logo" src="path/to/image.jpg">
+        <h1>Demo Medical Site</h1>
+      </div>
+      <div class="header-actions"><a class="button secondary" href="/signin">Sign in</a>
+      </div>
+    </header>
+    <div class="page">
+      <main class="page-content">
+        <div class="card">
+          <h2>Create an account</h2>
+          <form method="post" action="/signup">
+            <label for="displayName">Full name</label>
+            <input type="text" name="displayName" id="displayName" placeholder="Your name">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Sign up</button>
+          </form>
+          <p class="or">Continue with</p>
+          <div class="oauth-buttons"><a class="button google" href="/auth/google">Sign up with Google</a><a class="button microsoft" href="/auth/microsoft">Sign up with Microsoft</a></div>
+          <p>Already have an account? <a href="/signin">Sign in</a></p>
+        </div>
+      </main>
+      <footer class="site-footer">
+        <p id="last-update">Loading...</p>
+      </footer>
+    </div>
+    <script>
+      fetch('/api/date')
+        .then(res => res.json())
+        .then(data => {
+          if (document.getElementById('last-update')) {
+            document.getElementById('last-update').textContent = 'Last Update: ' + data.date;
+          }
+        })
+        .catch(() => {
+          if (document.getElementById('last-update')) {
+            document.getElementById('last-update').textContent = 'Last Update: ' + new Date().toLocaleDateString();
+          }
+        });
+    </script>
+  </body>
+</html>

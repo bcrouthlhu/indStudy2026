@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo Medical Site</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-brand"><img class="site-logo" src="path/to/image.jpg">
+        <h1>Demo Medical Site</h1>
+      </div>
+      <div class="header-actions"><a class="button secondary" href="/signin">Sign in</a>
+      </div>
+    </header>
+    <div class="page">
+      <main class="page-content">
+      </main>
+      <footer class="site-footer">
+        <p id="last-update">Loading...</p>
+      </footer>
+    </div>
+    <script>
+      fetch('/api/date')
+        .then(res => res.json())
+        .then(data => {
+          if (document.getElementById('last-update')) {
+            document.getElementById('last-update').textContent = 'Last Update: ' + data.date;
+          }
+        })
+        .catch(() => {
+          if (document.getElementById('last-update')) {
+            document.getElementById('last-update').textContent = 'Last Update: ' + new Date().toLocaleDateString();
+          }
+        });
+    </script>
+  </body>
+</html>
