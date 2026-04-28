@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  if error
+    .alert= error.replace(/\+/g, ' ')
+  .card
+    h2 Create an account
+    form(method="post" action="/signup")
+      label(for="displayName") Full name
+      input(type="text" name="displayName" id="displayName" placeholder="Your name")
+      label(for="email") Email
+      input(type="email" name="email" id="email" required)
+      label(for="password") Password
+      input(type="password" name="password" id="password" required)
+      button(type="submit") Sign up
+    p.or Continue with
+    .oauth-buttons
+      a.button.google(href="/auth/google") Sign up with Google
+      a.button.microsoft(href="/auth/microsoft") Sign up with Microsoft
+    p
+      | Already have an account? 
+      a(href="/signin") Sign in

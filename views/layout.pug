@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title Demo Medical Site
+    link(rel="stylesheet" href="/styles.css")
+  body
+    header.site-header
+      .site-brand
+        img(src='path/to/image.jpg', class='site-logo')
+        h1 Demo Medical Site
+      .header-actions
+        if user
+          a.button.secondary(href='/logout') Sign out
+        else
+          a.button.secondary(href='/signin') Sign in
+    .page
+      main.page-content
+        block content
+      footer.site-footer
+        p#last-update Loading...
+    script.
+      fetch('/api/date')
+        .then(res => res.json())
+        .then(data => {
+          if (document.getElementById('last-update')) {
+            document.getElementById('last-update').textContent = 'Last Update: ' + data.date;
+          }
+        })
+        .catch(() => {
+          if (document.getElementById('last-update')) {
+            document.getElementById('last-update').textContent = 'Last Update: ' + new Date().toLocaleDateString();
+          }
+        });
