@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "build": "rmdir /s /q dist & mkdir dist & npx pug views --out dist --pretty & xcopy public dist /E /I /Y"
+    "build": "rm -rf dist && mkdir -p dist && npx pug views --out dist --pretty && cp -r public/. dist/ || true"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
