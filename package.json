@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "build": "pug views --out dist --pretty && cp -r public/* dist/"
+    "build": "pug views --out dist --pretty && xcopy public dist /E /I /Y"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
