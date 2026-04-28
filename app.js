@@ -176,7 +176,7 @@ app.post('/signin', (req, res) => {
     if (err) {
       return res.redirect('/signin?error=Login+failed');
     }
-    res.redirect('/dashboard');
+    res.redirect('/index');
   });
 });
 
@@ -202,13 +202,13 @@ app.post('/signup', (req, res) => {
     if (err) {
       return res.redirect('/signup?error=Sign+up+failed');
     }
-    res.redirect('/dashboard');
+    res.redirect('/index');
   });
 });
 
-app.get('/dashboard', async (req, res) => {
+app.get('/index', async (req, res) => {
   const weather = await getWeatherData();
-  res.render('dashboard', { user: req.user, weather });
+  res.render('index', { user: req.user, weather });
 });
 
 app.get('/api/date', (req, res) => {
@@ -217,7 +217,7 @@ app.get('/api/date', (req, res) => {
 
 app.get('/logout', (req, res) => {
   req.logout(() => {
-    res.redirect('/dashboard');
+    res.redirect('/index');
   });
 });
 
@@ -225,14 +225,14 @@ app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'em
 app.get('/auth/google/callback', passport.authenticate('google', {
   failureRedirect: '/signin?error=Google+login+failed'
 }), (req, res) => {
-  res.redirect('/dashboard');
+  res.redirect('/index');
 });
 
 app.get('/auth/microsoft', passport.authenticate('microsoft'));
 app.get('/auth/microsoft/callback', passport.authenticate('microsoft', {
   failureRedirect: '/signin?error=Microsoft+login+failed'
 }), (req, res) => {
-  res.redirect('/dashboard');
+  res.redirect('/index');
 });
 
 app.listen(port, () => {
