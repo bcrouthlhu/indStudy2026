@@ -4,7 +4,8 @@
   "description": "Sign in / sign up pages with Google and Microsoft login using Pug",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "pug views --out dist --pretty && cp -r public/* dist/"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -15,5 +16,8 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-microsoft": "^2.0.0",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "pug-cli": "^1.0.0-alpha6"
   }
 }
