@@ -159,7 +159,7 @@ function ensureAuthenticated(req, res, next) {
 }
 
 app.get('/', (req, res) => {
-  res.redirect('/dashboard');
+  res.redirect('/index');
 });
 
 app.get('/signin', (req, res) => {
