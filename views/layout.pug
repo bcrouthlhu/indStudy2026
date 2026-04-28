@@ -5,21 +5,41 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title Demo Medical Site
     link(rel="stylesheet" href="/styles.css")
+
   body
     header.site-header
       .site-brand
         img(src='path/to/image.jpg', class='site-logo')
         h1 Demo Medical Site
+
       .header-actions
         if user
           a.button.secondary(href='/logout') Sign out
         else
           a.button.secondary(href='/signin') Sign in
+
     .page
+      aside.sidebar
+        nav.sidebar-nav
+          ul
+            li
+              a(href='/') Dashboard
+            li
+              a(href='/patients') Patients
+            li
+              a(href='/appointments') Appointments
+            li
+              a(href='/records') Records
+            li
+              a(href='/settings') Settings
+
+          footer.sidebar-footer
+            p#last-update Loading...
+
       main.page-content
         block content
-      footer.site-footer
-        p#last-update Loading...
+
+
     script.
       fetch('/api/date')
         .then(res => res.json())
