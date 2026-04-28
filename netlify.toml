@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  functions = "netlify/functions"
+  publish = "dist"
+
+[functions]
+  external_node_modules = ["express", "pug", "serverless-http"]
+  node_bundler = "zisi"
+  included_files = ["src/views/**", "src/css/**", "src/**/*.js", "public/**"]
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
