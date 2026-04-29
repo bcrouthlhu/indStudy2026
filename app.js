@@ -58,7 +58,7 @@ function getPrecipitationProbability(hourly, currentTime) {
 
 async function getWeatherData() {
   const tempUnit = 'fahrenheit';
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=41.137&longitude=-77.4469&hourly=temperature_2m,precipitation_probability,precipitation,apparent_temperature&current=temperature_2m,apparent_temperature,precipitation,rain,showers,snowfall&timezone=America%2FNew_York&temperature_unit=${tempUnit}`;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=41.137&longitude=-77.4469&daily=temperature_2m_max,temperature_2m_min&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation&current=temperature_2m,is_day,apparent_temperature,precipitation,rain,showers,snowfall&timezone=America%2FNew_York&past_days=0&forecast_days=7&wind_speed_unit=mph&temperature_unit=${tempUnit}`;
   try {
     const response = await fetchJson(url);
     const current = response.current;
