@@ -55,10 +55,9 @@ body {
 }
 
 .site-logo {
-  width: 42px;
+  width: 50px;
   height: 42px;
   border-radius: 0.75rem;
-  object-fit: cover;
 }
 
 .header-actions {
@@ -126,6 +125,8 @@ body {
   border-radius: 1rem;
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
   padding: 2rem;
+  margin-top: 1rem;
+  width: 76vw;
 }
 
 label {
@@ -231,10 +232,10 @@ p.or {
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   padding: 1.6rem;
+  width: 77vw;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 1rem;
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
-
 }
 
 .dashboard-hero h2 {
@@ -275,12 +276,12 @@ p.or {
 .tile.weather-tile {
   grid-column: 1 / -1;
   min-height: 60px !important;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 .tile.weather-tile .tile-body {
   min-height: 40px !important;
-  padding: 0.5rem;
+  padding: 1rem;
   flex: none !important;
 }
 

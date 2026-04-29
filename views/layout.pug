@@ -3,14 +3,15 @@ html(lang="en")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    title Demo Medical Site
+    title Makeshift Medical Site
     link(rel="stylesheet" href="/styles.css")
+    link(rel="icon", type="image/x-icon", href="medicalLogo.png")
 
   body
     header.site-header
       .site-brand
-        img(src='path/to/image.jpg', class='site-logo')
-        h1 Demo Medical Site
+        img(src='medicalLogo.png', class='site-logo')
+        h1 Makeshift Medical Site
 
       .header-actions
         if user
@@ -26,8 +27,6 @@ html(lang="en")
               a(href='/') Dashboard
             li
               a(href='/analytics') Analytics
-            li
-              a(href='/settings') Settings
 
           footer.sidebar-footer
             p#last-update Loading...
