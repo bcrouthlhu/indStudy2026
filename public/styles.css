@@ -228,16 +228,13 @@ p.or {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
   padding: 1.6rem;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 1rem;
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
-}
 
-.dashboard-hero .button {
-  width: auto;
-  padding: 0.75rem 1.2rem;
 }
 
 .dashboard-hero h2 {
@@ -365,4 +362,66 @@ p.or {
   .tile.wide {
     grid-column: span 8;
   }
+}
+
+/* Hide radio buttons */
+.folder-system input {
+  display: none;
+}
+
+/* Tabs container */
+.folder-tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: -1px;
+}
+
+/* Individual tabs */
+.folder-tabs label {
+  padding: 0.6rem 1.2rem;
+  background: #e2e8f0;
+  border-radius: 0.75rem 0.75rem 0 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.folder-tabs label:hover {
+  background: #cbd5f5;
+}
+
+/* Active tab styling */
+#tab1:checked ~ .folder-tabs label[for="tab1"],
+#tab2:checked ~ .folder-tabs label[for="tab2"],
+#tab3:checked ~ .folder-tabs label[for="tab3"],
+#tab4:checked ~ .folder-tabs label[for="tab4"],
+#tab5:checked ~ .folder-tabs label[for="tab5"],
+#tab6:checked ~ .folder-tabs label[for="tab6"],
+#tab7:checked ~ .folder-tabs label[for="tab7"] {
+  background: var(--surface);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+}
+
+/* Content container */
+.folder-content {
+  background: var(--surface);
+  border-radius: 0 1rem 1rem 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Panels hidden by default */
+.panel {
+  display: none;
+}
+
+/* Show correct panel */
+#tab1:checked ~ .folder-content .panel-1,
+#tab2:checked ~ .folder-content .panel-2,
+#tab3:checked ~ .folder-content .panel-3,
+#tab4:checked ~ .folder-content .panel-4,
+#tab5:checked ~ .folder-content .panel-5,
+#tab6:checked ~ .folder-content .panel-6,
+#tab7:checked ~ .folder-content .panel-7 {
+  display: block;
 }

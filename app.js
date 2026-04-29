@@ -236,6 +236,10 @@ app.get('/auth/microsoft/callback', passport.authenticate('microsoft', {
   res.redirect('/index');
 });
 
+app.get('/analytics', (req, res) => {
+  res.render('analytics', { user: req.user });
+});
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

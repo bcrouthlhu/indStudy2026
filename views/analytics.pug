@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  .folder-system
+    input(type="radio" name="tabs" id="tab1" checked)
+    input(type="radio" name="tabs" id="tab2")
+    input(type="radio" name="tabs" id="tab3")
+    input(type="radio" name="tabs" id="tab4")
+    input(type="radio" name="tabs" id="tab5")
+    input(type="radio" name="tabs" id="tab6")
+    input(type="radio" name="tabs" id="tab7")
+
+    .folder-tabs
+      label(for="tab1") Pollen Types Over Time & Temp vs. Allergies
+      label(for="tab2") Summer Allergy vs Temperature
+      label(for="tab3") Average AQI by Year
+      label(for="tab4") Average AQI by City
+      label(for="tab5") AQI Heatmap by City and Year
+      label(for="tab6") UV Radiation by Pennsylvania County
+      label(for="tab7") Pennsylvania County UV Radiation Potential
+
+
+    .folder-content
+      .panel.panel-1
+        h2 Pollen Types Over Time & Temp vs. Allergies
+        iframe(src="/tempAllg.html", width="100%", height="500", style="border:none")
+
+      .panel.panel-2
+        h2 Summer Allergy vs Temperature
+        iframe(src="/summAllg.html", width="100%", height="500", style="border:none")
+
+      .panel.panel-3
+        h2 Average AQI by Year
+        iframe(src="/aqi_trend.html", width="100%", height="500", style="border:none")
+
+      .panel.panel-4
+        h2 Avg AQI by City
+        iframe(src="/aqi_bar.html", width="100%", height="500", style="border:none")
+
+      .panel.panel-5
+        h2 AQI Heatmap by City and Year
+        iframe(src="/aqi_heatmap.html", width="100%", height="500", style="border:none")
+
+      .panel.panel-6
+        h2 UV Radiation by Pennsylvania County
+        iframe(src="/uv_bar.html", width="100%", height="500", style="border:none")
+
+      .panel.panel-7
+        h2 Pennsylvania County UV Radiation Potential
+        iframe(src="/uv_map.html", width="100%", height="500", style="border:none")
+    
